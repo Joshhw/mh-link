@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Container, Row } from "react-bootstrap";
+import { Table, Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 
 const RugglesRow = styled.tr`
@@ -7,23 +7,45 @@ const RugglesRow = styled.tr`
   border-color: black;
 `;
 
+const StyledTable = styled(Table)`
+  thead {
+    background-color: #ccdcf2;
+  }
+  border-color: #black;
+`;
 const RoxburyCrossing = styled.tr`
-  background-color: #d3e1f1;
+  // background-color: #d3e1f1;
   border-color: black;
 `;
 const Padh4 = styled.h4`
   padding: 1rem 0;
 `;
 
+const Wrapper = styled(Container)`
+  padding: 1rem 0;
+`;
+
 function Schedule() {
   return (
     <React.Fragment>
-      <Container fluid>
+      <Wrapper fluid>
         <Row>
-          <Padh4>Ruggles Schedule</Padh4>
-          <h5>Cost:</h5>
-          <h6>Adults/Children: $1:50</h6>
-          <h6>Seniors/Disabled: 50¢</h6>
+          <h4>Ruggles Schedule</h4>
+        </Row>
+        <Row>
+          <Col>
+            <h6>
+              Adults: $1:50 - Seniors/Disabled: 50¢ - Children 12 and under:
+              Free
+            </h6>
+          </Col>
+          <Col>
+            <h6>
+              The schedules below are estimated times of departure and arrival.
+            </h6>
+          </Col>
+        </Row>
+        <Row>
           <Table responsive bordered size="sm">
             <thead>
               <tr>
@@ -157,7 +179,7 @@ function Schedule() {
         </Row>
         <Row>
           <Padh4>Roxbury Crossing Schedule</Padh4>
-          <Table responsive bordered size="sm">
+          <StyledTable responsive bordered size="sm">
             <thead>
               <tr>
                 <th>Stop</th>
@@ -287,9 +309,9 @@ function Schedule() {
                 <td>6:27pm</td>
               </RoxburyCrossing>
             </tbody>
-          </Table>
+          </StyledTable>
         </Row>
-      </Container>
+      </Wrapper>
     </React.Fragment>
   );
 }
